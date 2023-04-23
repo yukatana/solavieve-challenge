@@ -23,10 +23,10 @@ export class FeedbackFormComponent implements OnInit {
     config.max = 5;
 
     const controls: any = {
-      overallRating: new FormControl<number | null>(null),
-      paymentRating: new FormControl<number | null>(null),
-      customerServiceRating: new FormControl<number | null>(null),
-      comment: new FormControl(null)
+      overallRating: new FormControl<number>(0),
+      paymentRating: new FormControl<number>(0),
+      customerServiceRating: new FormControl<number>(0),
+      comment: new FormControl<string | null>(null)
     };
     this.feedbackForm = new FormGroup(controls);
   }
