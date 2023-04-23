@@ -17,6 +17,11 @@ textarea {
   resize: none;
   max-width: 900px;
   min-height: 200px;
+  box-shadow: 0 0 12px #0000003F;
+}
+
+textarea::placeholder {
+  color: #C8C8C8;
 }
 
 textarea:focus {

@@ -4,6 +4,7 @@ import { FeedbackFormComponent } from './components/feedback-form/feedback-form.
 import { FeedbackSuccessComponent } from './components/feedback-success/feedback-success.component';
 import { NgBootstrapModule } from '../shared/ng-bootstrap/ng-bootstrap.module';
 import { SharedFormsModule } from '../shared/forms/shared-forms.module';
+import { FirestoreService } from '../firebase/services/firestore.service';
 
 
 
@@ -11,6 +12,9 @@ import { SharedFormsModule } from '../shared/forms/shared-forms.module';
   declarations: [
     FeedbackFormComponent,
     FeedbackSuccessComponent
+  ],
+  providers: [
+    FirestoreService
   ],
   exports: [
     FeedbackFormComponent

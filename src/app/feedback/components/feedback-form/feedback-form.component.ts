@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { FeedbackSuccessComponent } from '../feedback-success/feedback-success.component';
+import { FeedbackSubmission } from '../../../models/feedbackSubmission';
+import { FirestoreService } from '../../../firebase/services/firestore.service';
 
 @Component({
   selector: 'app-feedback-form',
@@ -15,6 +17,7 @@ export class FeedbackFormComponent implements OnInit {
   constructor(
     private config: NgbRatingConfig,
     private dialog: MatDialog,
+    private firestore: FirestoreService,
     ) {
     // customizing ngb rating value for 5 stars
     config.max = 5;
@@ -32,8 +35,10 @@ export class FeedbackFormComponent implements OnInit {
   }
 
   postFeedback() {
-    const feedback = this.feedbackForm.value;
-    this.dialog.open(FeedbackSuccessComponent);
+    const feedback: FeedbackSubmission = this.feedbackForm.value;
+    this.firestore.addDocumentToCollection('feedback', feedback)
+      .then(res => this.dialog.open(FeedbackSuccessComponent))
+      .catch(err => alert(`ERROR CODE: ${err?.code}. There was an error posting your feedback. Please, try again later.`))
   }
 
 }

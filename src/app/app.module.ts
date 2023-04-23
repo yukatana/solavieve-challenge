@@ -8,6 +8,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FeedbackModule } from './feedback/feedback.module';
 import { MaterialModule } from './shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    AngularFireDatabaseModule,
     FeedbackModule,
     MaterialModule,
   ],
