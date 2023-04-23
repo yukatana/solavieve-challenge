@@ -1,0 +1,53 @@
+#logo {
+  height: 80px;
+  width: 306px;
+  left: 32px;
+  top: 18px;
+}
+
+ngb-rating {
+  color: #D3D3D3;
+  font-size: 80px;
+}
+
+.filled {
+  color: #11C4B0;
+}
+
+textarea {
+  resize: none;
+  max-width: 900px;
+  min-height: 200px;
+}
+
+textarea:focus {
+  border-color: #11C4B0;
+  box-shadow: 0 0 5px 1px #11C4B0;
+}
+
+button {
+  background-color: #11C4B0;
+  border: none;
+  border-radius: 80px;
+  color: white;
+  padding: 10px 15px;
+}
+
+button:disabled {
+  background-color: #D3D3D3;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+p {
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+#form-container hr {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
