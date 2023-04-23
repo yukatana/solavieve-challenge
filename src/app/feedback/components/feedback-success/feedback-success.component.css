@@ -1,0 +1,17 @@
+.container {
+  height: 350px;
+  width: 550px;
+}
+
+button {
+  background-color: #11C4B0;
+  border: none;
+  border-radius: 80px;
+  color: white;
+  padding: 10px 15px;
+}
+
+p {
+  color: #979797;
+  font-weight: 500;
+}

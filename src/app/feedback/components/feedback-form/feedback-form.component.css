@@ -1,6 +1,4 @@
 #logo {
-  height: 80px;
-  width: 306px;
   left: 32px;
   top: 18px;
 }
@@ -8,6 +6,7 @@
 ngb-rating {
   color: #D3D3D3;
   font-size: 80px;
+  max-width: 100%;
 }
 
 .filled {

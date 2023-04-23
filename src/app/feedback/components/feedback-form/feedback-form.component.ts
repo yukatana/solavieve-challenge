@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { FeedbackSuccessComponent } from '../feedback-success/feedback-success.component';
 
 @Component({
   selector: 'app-feedback-form',
@@ -10,25 +12,28 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class FeedbackFormComponent implements OnInit {
   feedbackForm: FormGroup;
 
-  constructor(config: NgbRatingConfig) {
+  constructor(
+    private config: NgbRatingConfig,
+    private dialog: MatDialog,
+    ) {
     // customizing ngb rating value for 5 stars
     config.max = 5;
 
     const controls: any = {
-      overallRating: new FormControl<number | null>(null, [Validators.required]),
-      paymentRating: new FormControl<number | null>(null, [Validators.required]),
-      customerServiceRating: new FormControl<number | null>(null, [Validators.required]),
+      overallRating: new FormControl<number | null>(null),
+      paymentRating: new FormControl<number | null>(null),
+      customerServiceRating: new FormControl<number | null>(null),
       comment: new FormControl(null)
-    }
-    this.feedbackForm = new FormGroup(controls)
+    };
+    this.feedbackForm = new FormGroup(controls);
   }
 
   ngOnInit(): void {
   }
 
   postFeedback() {
-    const feedback = this.feedbackForm.value
-    console.log(feedback)
+    const feedback = this.feedbackForm.value;
+    this.dialog.open(FeedbackSuccessComponent);
   }
 
 }
