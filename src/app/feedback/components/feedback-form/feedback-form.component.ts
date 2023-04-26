@@ -38,7 +38,7 @@ export class FeedbackFormComponent implements OnInit {
     const feedback: FeedbackSubmission = this.feedbackForm.value;
     this.firestore.addDocumentToCollection('feedback', feedback)
       .then(res => this.dialog.open(FeedbackSuccessComponent))
-      .catch(err => alert(`ERROR CODE: ${err?.code}. There was an error posting your feedback. Please, try again later.`))
+      .catch(err => alert(`ERROR CODE: ${err?.code}. There was an error posting your feedback. Please, try again later.`));
   }
 
 }
